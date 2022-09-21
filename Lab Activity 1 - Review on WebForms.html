@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <title>Review on WebForms </title>
+
+  <script>
+    function processAll(frm){
+      var name = document.getElementById("name").value;
+
+      var course = document.getElementById("pickCourse").value;
+
+      var year = document.form1.radBtn.value;
+
+
+      var subj = "Subjects: " ;
+
+      total = " "
+      for (i=0;i<document.form1.subCheck.length;i++)
+      if (document.form1.subCheck[i].checked)
+      total += document.form1.subCheck[i].value + "<br/>"
+
+
+
+      document.getElementById("result").innerHTML = "Name: <b>" + name +"</b>"+ "<br/>" +
+                                                    "Course: <b>" + course + "</b>" +"</br>"
+                                                    + "Year: <b>" + year + "</b>" + "<br/>" + subj + "<br/>" + "<ul>" + total + "<br/> " +"</ul>";
+    }
+
+
+    function clearAll(frm){
+      document.getElementById("result").innerHTML = " "
+    }
+  </script>
+</head>
+
+<body>
+<form name = form1>
+Name:
+  <input id=name type="text" name="txtname" value=""/> <br/> <br/>
+  Course
+  <select name = selCourse id = pickCourse>
+		<option value="-1"></option>
+			<option value="BSCS">BSCS</option>
+			<option value="BSIT">BSIT</option>
+			<option value="ComEng">ComEng</option>
+			<option value="ComTech">ComTech</option>
+  </select> <br/> <br/>
+
+  <label>Year:</label>
+		<input type="radio" value="First" name="radBtn" checked="checked"/>I
+		<input type="radio" value="Second" name="radBtn" />II
+		<input type="radio" value="Third" name="radBtn" />III
+		<input type="radio" value="Fourth" name="radBtn" />IV <br/>
+
+  Subjects: <br/>
+	<input type="checkbox" value="CP1" name="subCheck" />CP1
+	<input type="checkbox" value="DBMS" name="subCheck" />DBMS
+	<br />
+	<input type="checkbox" value="CP2" name="subCheck" />CP2
+	<input type="checkbox" value="WebProg" name="subCheck" />WebProg
+	<br />
+	<input type="checkbox" value="CP3" name="subCheck" />CP3
+	<input type="checkbox" value="IT Project I" name="subCheck" />IT Project I
+	<br />
+	<input type="checkbox" value="CCF" name="subCheck" />CCF
+	<input type="checkbox" value="IT Project II" name="subCheck" />IT Project II <br/> <br/>
+
+  <input type = button name = btnProcess value = Process onclick = processAll(this.form) />
+  <input type = reset name = btnReset value = Clear onclick = clearAll(this.form) /> <br/> <br/>
+</form>
+  <div id = result></div>
+
+</body>
+
+
+
+</html>
